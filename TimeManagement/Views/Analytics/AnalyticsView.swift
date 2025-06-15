@@ -82,20 +82,10 @@ struct AnalyticsView: View {
                             AnalyticsCardView(
                                 title: "カテゴリ別時間分析（象限別）",
                                 icon: "chart.pie.fill",
-                                description: "重要度・緊急度の象限ごとにカテゴリを色分け表示"
+                                description: "重要度・緊急度の象限ごとにカテゴリを色分け表示（タップで詳細分析）"
                             ) {
                                 CategoryPieChartView(activities: filteredActivities)
                                     .frame(height: 400)
-                            }
-                            
-                            // Priority Matrix Chart
-                            AnalyticsCardView(
-                                title: "重要度・緊急度マトリクス",
-                                icon: "square.grid.2x2.fill",
-                                description: "4象限による時間の分類分析"
-                            ) {
-                                MatrixChartView(activities: filteredActivities)
-                                    .frame(height: 280)
                             }
                             
                             // Detailed Statistics
