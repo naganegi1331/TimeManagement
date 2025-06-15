@@ -64,40 +64,49 @@ struct CategoryPieChartView: View {
                 .frame(maxWidth: .infinity, minHeight: 120)
             } else {
                 VStack(spacing: 24) {
-                    // Enhanced Pie Chart
-                    ZStack {
-                        // Background circle with shadow
-                        Circle()
-                            .fill(.quaternary)
-                            .frame(width: 170, height: 170)
-                            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
-                        
-                        // Pie slices
-                        ForEach(Array(chartData.enumerated()), id: \.offset) { index, data in
-                            EnhancedPieSlice(
-                                startAngle: startAngle(for: index),
-                                endAngle: endAngle(for: index),
-                                color: data.color,
-                                isHighlighted: false
-                            )
-                        }
-                        
-                        // Center circle with total time
-                        VStack(spacing: 2) {
-                            Text("合計")
-                                .font(.caption2)
-                                .fontWeight(.medium)
-                                .foregroundStyle(.secondary)
+                    // Enhanced Pie Chart with Navigation
+                    NavigationLink(destination: MatrixChartView(activities: activities)) {
+                        ZStack {
+                            // Background circle with shadow
+                            Circle()
+                                .fill(.quaternary)
+                                .frame(width: 170, height: 170)
+                                .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
                             
-                            Text(formatTotalTime())
-                                .font(.headline)
-                                .fontWeight(.bold)
-                                .foregroundStyle(.primary)
+                            // Pie slices
+                            ForEach(Array(chartData.enumerated()), id: \.offset) { index, data in
+                                EnhancedPieSlice(
+                                    startAngle: startAngle(for: index),
+                                    endAngle: endAngle(for: index),
+                                    color: data.color,
+                                    isHighlighted: false
+                                )
+                            }
+                            
+                            // Center circle with total time
+                            VStack(spacing: 2) {
+                                Text("合計")
+                                    .font(.caption2)
+                                    .fontWeight(.medium)
+                                    .foregroundStyle(.secondary)
+                                
+                                Text(formatTotalTime())
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundStyle(.primary)
+                                
+                                // タップヒント
+                                Text("タップで詳細")
+                                    .font(.caption2)
+                                    .foregroundStyle(.blue)
+                                    .opacity(0.8)
+                            }
+                            .padding(16)
+                            .background(Material.regularMaterial, in: Circle())
                         }
-                        .padding(16)
-                        .background(Material.regularMaterial, in: Circle())
+                        .frame(width: 170, height: 170)
                     }
-                    .frame(width: 170, height: 170)
+                    .buttonStyle(PlainButtonStyle())
                     
                     // Enhanced Legend with Quadrant Info
                     VStack(spacing: 16) {
