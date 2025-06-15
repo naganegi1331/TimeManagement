@@ -78,14 +78,14 @@ struct AnalyticsView: View {
                         
                         // Charts Section
                         VStack(spacing: 20) {
-                            // Category Chart
+                            // Category Chart by Quadrant
                             AnalyticsCardView(
-                                title: "カテゴリ別時間分析",
+                                title: "カテゴリ別時間分析（象限別）",
                                 icon: "chart.pie.fill",
-                                description: "活動カテゴリごとの時間配分"
+                                description: "重要度・緊急度の象限ごとにカテゴリを色分け表示"
                             ) {
                                 CategoryPieChartView(activities: filteredActivities)
-                                    .frame(height: 280)
+                                    .frame(height: 400)
                             }
                             
                             // Priority Matrix Chart

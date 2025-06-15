@@ -10,22 +10,43 @@ import SwiftUI
 struct CategoryPieChartView: View {
     let activities: [ActivityLog]
     
-    private var chartData: [ChartData] {
-        let grouped = Dictionary(grouping: activities) { $0.category }
+    private var chartData: [QuadrantChartData] {
+        // グループ化：カテゴリ別に象限も考慮
+        let grouped = Dictionary(grouping: activities) { 
+            "\($0.category.rawValue)_\($0.priority.quadrant)" 
+        }
         let totalMinutes = activities.reduce(0) { $0 + $1.durationInMinutes }
         
-        return grouped.compactMap { category, activities in
+        return grouped.compactMap { key, activities in
             let minutes = activities.reduce(0) { $0 + $1.durationInMinutes }
-            guard minutes > 0 else { return nil }
+            guard minutes > 0, let firstActivity = activities.first else { return nil }
             
             let percentage = Double(minutes) / Double(totalMinutes)
-            return ChartData(
-                category: category,
+            return QuadrantChartData(
+                category: firstActivity.category,
+                quadrant: firstActivity.priority.quadrant,
                 minutes: minutes,
                 percentage: percentage,
-                color: Color(category.color)
+                color: quadrantColor(for: firstActivity.priority.quadrant),
+                priority: firstActivity.priority
             )
-        }.sorted { $0.minutes > $1.minutes }
+        }.sorted { 
+            if $0.quadrant == $1.quadrant {
+                return $0.minutes > $1.minutes
+            }
+            return $0.quadrant < $1.quadrant
+        }
+    }
+    
+    // 象限別の色定義
+    private func quadrantColor(for quadrant: Int) -> Color {
+        switch quadrant {
+        case 1: return .red        // 重要かつ緊急
+        case 2: return .blue       // 重要だが緊急でない
+        case 3: return .orange     // 重要でないが緊急
+        case 4: return .gray       // 重要でも緊急でもない
+        default: return .gray
+        }
     }
     
     var body: some View {
@@ -78,10 +99,14 @@ struct CategoryPieChartView: View {
                     }
                     .frame(width: 170, height: 170)
                     
-                    // Enhanced Legend
-                    LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 12) {
-                        ForEach(chartData, id: \.category) { data in
-                            LegendItem(data: data)
+                    // Enhanced Legend with Quadrant Info
+                    VStack(spacing: 16) {
+                        // Legend by Quadrant
+                        ForEach([1, 2, 3, 4], id: \.self) { quadrant in
+                            let quadrantData = chartData.filter { $0.quadrant == quadrant }
+                            if !quadrantData.isEmpty {
+                                QuadrantLegendSection(quadrant: quadrant, data: quadrantData)
+                            }
                         }
                     }
                 }
@@ -113,6 +138,17 @@ struct CategoryPieChartView: View {
     }
 }
 
+// 象限別チャートデータ
+struct QuadrantChartData {
+    let category: ActivityCategory
+    let quadrant: Int
+    let minutes: Int
+    let percentage: Double
+    let color: Color
+    let priority: PriorityMatrix
+}
+
+// 後方互換性のためのChartData（必要に応じて削除可能）
 struct ChartData {
     let category: ActivityCategory
     let minutes: Int
@@ -187,6 +223,118 @@ struct EnhancedPieSlice: View {
         )
         .scaleEffect(isHighlighted ? 1.05 : 1.0)
         .animation(.easeInOut(duration: 0.2), value: isHighlighted)
+    }
+}
+
+// 象限別Legend セクション
+struct QuadrantLegendSection: View {
+    let quadrant: Int
+    let data: [QuadrantChartData]
+    
+    private var quadrantTitle: String {
+        switch quadrant {
+        case 1: return "第1象限（重要・緊急）"
+        case 2: return "第2象限（重要・非緊急）"
+        case 3: return "第3象限（非重要・緊急）"
+        case 4: return "第4象限（非重要・非緊急）"
+        default: return "その他"
+        }
+    }
+    
+    private var quadrantColor: Color {
+        switch quadrant {
+        case 1: return .red
+        case 2: return .blue
+        case 3: return .orange
+        case 4: return .gray
+        default: return .gray
+        }
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            // Quadrant Header
+            HStack(spacing: 8) {
+                Circle()
+                    .fill(quadrantColor)
+                    .frame(width: 12, height: 12)
+                
+                Text(quadrantTitle)
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.primary)
+                
+                Spacer()
+                
+                let totalMinutes = data.reduce(0) { $0 + $1.minutes }
+                Text("\(totalMinutes)分")
+                    .font(.caption2)
+                    .fontWeight(.medium)
+                    .foregroundStyle(.secondary)
+            }
+            
+            // Category items in this quadrant
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 8) {
+                ForEach(data, id: \.category) { item in
+                    QuadrantLegendItem(data: item)
+                }
+            }
+        }
+        .padding(12)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .fill(quadrantColor.opacity(0.05))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(quadrantColor.opacity(0.2), lineWidth: 1)
+                )
+        )
+    }
+}
+
+// 象限別Legend アイテム
+struct QuadrantLegendItem: View {
+    let data: QuadrantChartData
+    
+    var body: some View {
+        HStack(spacing: 6) {
+            // Category icon
+            ZStack {
+                Circle()
+                    .fill(data.color.opacity(0.15))
+                    .frame(width: 20, height: 20)
+                
+                Image(systemName: data.category.icon)
+                    .font(.caption2)
+                    .fontWeight(.medium)
+                    .foregroundStyle(data.color)
+            }
+            
+            VStack(alignment: .leading, spacing: 1) {
+                Text(data.category.rawValue)
+                    .font(.caption2)
+                    .fontWeight(.medium)
+                    .foregroundStyle(.primary)
+                    .lineLimit(1)
+                
+                HStack(spacing: 2) {
+                    Text("\(data.minutes)分")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                    
+                    Text("(\(String(format: "%.1f", data.percentage * 100))%)")
+                        .font(.caption2)
+                        .foregroundStyle(.tertiary)
+                }
+            }
+            
+            Spacer(minLength: 0)
+        }
+        .padding(.horizontal, 6)
+        .padding(.vertical, 4)
+        .background(Material.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 6))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(data.category.rawValue): \(data.minutes)分, \(String(format: "%.1f", data.percentage * 100))パーセント")
     }
 }
 
