@@ -183,17 +183,53 @@ struct ActivityEditView: View {
                         VStack(alignment: .leading, spacing: 16) {
                             SectionHeaderView(title: "重要度・緊急度", icon: "exclamationmark.triangle.fill")
                             
-                            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 12) {
-                                ForEach(PriorityMatrix.allCases, id: \.self) { priority in
-                                    PrioritySelectionCard(
-                                        priority: priority,
-                                        isSelected: selectedPriority == priority
-                                    ) {
-                                        withAnimation(.easeInOut(duration: 0.2)) {
-                                            selectedPriority = priority
+                            VStack(spacing: 12) {
+                                Picker("重要度・緊急度を選択", selection: $selectedPriority) {
+                                    ForEach(PriorityMatrix.allCases, id: \.self) { priority in
+                                        VStack(alignment: .leading, spacing: 2) {
+                                            Text(priority.shortName)
+                                                .font(.subheadline)
+                                                .fontWeight(.semibold)
+                                            Text("第\(priority.quadrant)象限")
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
                                         }
+                                        .tag(priority)
                                     }
                                 }
+                                .pickerStyle(.menu)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 12)
+                                .background(Material.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+                                
+                                // Selected priority preview
+                                HStack(spacing: 12) {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 8)
+                                            .fill(Color(selectedPriority.color).opacity(0.15))
+                                            .frame(width: 32, height: 32)
+                                        
+                                        Text("\(selectedPriority.quadrant)")
+                                            .font(.system(size: 16, weight: .bold))
+                                            .foregroundStyle(Color(selectedPriority.color))
+                                    }
+                                    
+                                    VStack(alignment: .leading, spacing: 2) {
+                                        Text("選択中: \(selectedPriority.shortName)")
+                                            .font(.subheadline)
+                                            .fontWeight(.medium)
+                                            .foregroundStyle(.secondary)
+                                        
+                                        Text("第\(selectedPriority.quadrant)象限")
+                                            .font(.caption)
+                                            .foregroundStyle(.tertiary)
+                                    }
+                                    
+                                    Spacer()
+                                }
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(Color(selectedPriority.color).opacity(0.05), in: RoundedRectangle(cornerRadius: 8))
                             }
                         }
                         
@@ -365,52 +401,7 @@ struct TimePickerRow: View {
 
 
 
-struct PrioritySelectionCard: View {
-    let priority: PriorityMatrix
-    let isSelected: Bool
-    let onTap: () -> Void
-    @State private var isPressed = false
-    
-    var body: some View {
-        Button(action: onTap) {
-            VStack(spacing: 8) {
-                Text(priority.shortName)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .foregroundStyle(isSelected ? Color(priority.color) : .primary)
-                    .multilineTextAlignment(.center)
-                
-                Text("第\(priority.quadrant)象限")
-                    .font(.caption)
-                    .fontWeight(.medium)
-                    .foregroundStyle(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 16)
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(isSelected ? Color(priority.color).opacity(0.15) : Color(.systemGray6))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(isSelected ? Color(priority.color) : .clear, lineWidth: 2)
-                    )
-            )
-            .scaleEffect(isPressed ? 0.95 : 1.0)
-        }
-        .buttonStyle(.plain)
-        .pressEvents {
-            withAnimation(.easeInOut(duration: 0.1)) {
-                isPressed = true
-            }
-        } onRelease: {
-            withAnimation(.easeInOut(duration: 0.1)) {
-                isPressed = false
-            }
-        }
-        .accessibilityLabel("\(priority.shortName), 第\(priority.quadrant)象限")
-        .accessibilityValue(isSelected ? "選択済み" : "未選択")
-    }
-}
+
 
 // MARK: - Fifteen Minute Time Picker
 
