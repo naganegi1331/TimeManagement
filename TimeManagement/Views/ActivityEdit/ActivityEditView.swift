@@ -138,17 +138,44 @@ struct ActivityEditView: View {
                         VStack(alignment: .leading, spacing: 16) {
                             SectionHeaderView(title: "カテゴリ", icon: "tag.fill")
                             
-                            LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: 2), spacing: 12) {
-                                ForEach(ActivityCategory.allCases, id: \.self) { category in
-                                    CategorySelectionCard(
-                                        category: category,
-                                        isSelected: selectedCategory == category
-                                    ) {
-                                        withAnimation(.easeInOut(duration: 0.2)) {
-                                            selectedCategory = category
+                            VStack(spacing: 12) {
+                                Picker("カテゴリを選択", selection: $selectedCategory) {
+                                    ForEach(ActivityCategory.allCases, id: \.self) { category in
+                                        HStack(spacing: 8) {
+                                            Image(systemName: category.icon)
+                                                .foregroundStyle(Color(category.color))
+                                            Text(category.rawValue)
                                         }
+                                        .tag(category)
                                     }
                                 }
+                                .pickerStyle(.menu)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 12)
+                                .background(Material.regularMaterial, in: RoundedRectangle(cornerRadius: 12))
+                                
+                                // Selected category preview
+                                HStack(spacing: 12) {
+                                    ZStack {
+                                        Circle()
+                                            .fill(Color(selectedCategory.color).opacity(0.15))
+                                            .frame(width: 32, height: 32)
+                                        
+                                        Image(systemName: selectedCategory.icon)
+                                            .font(.system(size: 16, weight: .medium))
+                                            .foregroundStyle(Color(selectedCategory.color))
+                                    }
+                                    
+                                    Text("選択中: \(selectedCategory.rawValue)")
+                                        .font(.subheadline)
+                                        .fontWeight(.medium)
+                                        .foregroundStyle(.secondary)
+                                    
+                                    Spacer()
+                                }
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .background(Color(selectedCategory.color).opacity(0.05), in: RoundedRectangle(cornerRadius: 8))
                             }
                         }
                         
@@ -336,58 +363,7 @@ struct TimePickerRow: View {
     }
 }
 
-struct CategorySelectionCard: View {
-    let category: ActivityCategory
-    let isSelected: Bool
-    let onTap: () -> Void
-    @State private var isPressed = false
-    
-    var body: some View {
-        Button(action: onTap) {
-            VStack(spacing: 8) {
-                ZStack {
-                    Circle()
-                        .fill(Color(category.color).opacity(isSelected ? 0.3 : 0.1))
-                        .frame(width: 40, height: 40)
-                    
-                    Image(systemName: category.icon)
-                        .font(.title3)
-                        .fontWeight(.medium)
-                        .foregroundStyle(Color(category.color))
-                }
-                
-                Text(category.rawValue)
-                    .font(.subheadline)
-                    .fontWeight(isSelected ? .semibold : .medium)
-                    .foregroundStyle(isSelected ? .primary : .secondary)
-                    .multilineTextAlignment(.center)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 16)
-            .background(
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(isSelected ? Color(category.color).opacity(0.1) : Color(.systemGray6))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 12)
-                            .stroke(isSelected ? Color(category.color) : .clear, lineWidth: 2)
-                    )
-            )
-            .scaleEffect(isPressed ? 0.95 : 1.0)
-        }
-        .buttonStyle(.plain)
-        .pressEvents {
-            withAnimation(.easeInOut(duration: 0.1)) {
-                isPressed = true
-            }
-        } onRelease: {
-            withAnimation(.easeInOut(duration: 0.1)) {
-                isPressed = false
-            }
-        }
-        .accessibilityLabel(category.rawValue)
-        .accessibilityValue(isSelected ? "選択済み" : "未選択")
-    }
-}
+
 
 struct PrioritySelectionCard: View {
     let priority: PriorityMatrix
