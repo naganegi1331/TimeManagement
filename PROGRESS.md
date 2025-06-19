@@ -460,6 +460,82 @@ AnalyticsViewからMatrixChartViewの直接表示を削除し、円グラフタ�
 ## 📋 開発履歴とGitコミット記録
 
 ### 最新のコミットハッシュ
+- **コミットハッシュ**: `9f8f8f1`
+- **コミットメッセージ**: `refactor: Phase 1 file structure optimization - all files under 400 lines`
+- **記録日時**: 2025年6月19日
+- **状態**: リファクタリングPhase 1完了、全ファイル400行以下に最適化済み
+
+## 🔄 リファクタリング実装履歴
+
+### 📁 Phase 1: ファイル構造最適化作業 (2025/06/19)
+
+**実装目的:**
+Refactoring.mdの指針に従い、400行を超えるファイルを分割して単一責任原則を適用し、プロジェクト全体のコード品質と保守性を向上させました。
+
+**リファクタリング対象分析:**
+
+**1. ActivityEditView.swift の分割 (599行 → 319行)**
+- ✅ **SectionHeaderView.swift** 分離 (29行): 共通セクションヘッダーコンポーネント
+- ✅ **TimePickerComponents.swift** 分離 (267行): TimePickerRow + FifteenMinuteTimePickerView
+- ✅ 単一責任原則適用: メインビューから補助コンポーネントを分離
+- ✅ 280行のコード削減とモジュール化実現
+
+**2. CategoryPieChartView.swift の分割 (426行 → 178行)**
+- ✅ **ChartDataModels.swift** 分離 (28行): QuadrantChartData + ChartData構造体
+- ✅ **PieChartComponents.swift** 分離 (80行): EnhancedPieSlice UIコンポーネント
+- ✅ **ChartLegendComponents.swift** 分離 (171行): レジェンド関連UIコンポーネント
+- ✅ 248行のコード削減と責務別モジュール化実現
+
+**最適化成果:**
+
+**1. ファイル構造改善:**
+- ✅ **全ファイル400行以下達成**: 最大384行（AnalyticsView.swift）
+- ✅ **コード削減**: 総計528行削減
+- ✅ **新規ファイル作成**: 7つの専門ファイル追加
+- ✅ **平均ファイルサイズ**: 大幅な縮小と管理性向上
+
+**2. アーキテクチャ改善:**
+- ✅ **単一責任原則**: 各ファイルが明確な責務を持つ構造に変更
+- ✅ **モジュール化**: 機能別コンポーネントの独立性向上
+- ✅ **再利用性**: 共通コンポーネントの分離による再利用促進
+- ✅ **保守性**: 個別ファイルの理解と修正が容易に
+
+**3. コード品質向上:**
+- ✅ **シンプル第一**: 複雑な単一ファイルから理解しやすい小ファイル群へ
+- ✅ **段階的実装**: 小さなサブタスクに分割した安全なリファクタリング
+- ✅ **ビルドテスト**: 各段階でのビルド成功確認
+- ✅ **機能保持**: 既存機能の完全保持
+
+**技術的改善:**
+- ✅ **SwiftUIベストプラクティス**: 適切な責務分離とファイル構成
+- ✅ **コードナビゲーション**: 機能別ファイル配置による開発効率向上
+- ✅ **チーム開発対応**: 小ファイル化による並行開発のしやすさ
+- ✅ **メンテナンス性**: 修正箇所の特定と変更の影響範囲を最小化
+
+**プロジェクト構造最適化:**
+```
+TimeManagement/
+├── Views/
+│   ├── ActivityEdit/
+│   │   ├── ActivityEditView.swift (319行)
+│   │   ├── SectionHeaderView.swift (29行)
+│   │   └── TimePickerComponents.swift (267行)
+│   └── Analytics/
+│       ├── AnalyticsView.swift (384行)
+│       ├── CategoryPieChartView.swift (178行)
+│       ├── ChartDataModels.swift (28行)
+│       ├── PieChartComponents.swift (80行)
+│       ├── ChartLegendComponents.swift (171行)
+│       └── MatrixChartView.swift (354行)
+```
+
+**品質保証:**
+- ✅ **Refactoring.md準拠**: 指定された基本方針とルールの厳密な適用
+- ✅ **段階的検証**: 各分割ステップでのビルドテストと動作確認
+- ✅ **機能維持**: リファクタリング前後での機能同一性保証
+- ✅ **バージョン管理**: Gitコミットによる変更履歴の完全記録
+
+### 過去のコミット履歴
 - **コミットハッシュ**: `461b8a7`
 - **コミットメッセージ**: `docs: 重要度・緊急度Picker実装履歴をPROGRESS.mdに追加`
 - **記録日時**: 2025年6月19日
