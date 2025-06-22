@@ -147,63 +147,66 @@ struct AnalyticsView: View {
                         .foregroundStyle(.secondary)
                         .padding(.horizontal, 20)
                     
-                    if isAuthorized {
-                        // デバイス使用時間確認画面への遷移ボタン
-                        NavigationLink(destination: DeviceUsageDetailView(selectedDate: selectedDate)) {
-                            HStack {
-                                Image(systemName: "chart.bar.fill")
-                                    .font(.title2)
+                    // デバイス使用時間確認画面への遷移ボタン（常に表示）
+                    NavigationLink(destination: DeviceUsageDetailView(selectedDate: selectedDate)) {
+                        HStack {
+                            Image(systemName: "chart.bar.fill")
+                                .font(.title2)
+                                .foregroundStyle(.white)
+                            
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("詳細なデバイス使用時間を確認")
+                                    .font(.headline)
+                                    .fontWeight(.semibold)
                                     .foregroundStyle(.white)
                                 
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("詳細なデバイス使用時間を確認")
-                                        .font(.headline)
-                                        .fontWeight(.semibold)
-                                        .foregroundStyle(.white)
-                                    
-                                    Text("全アプリの使用時間とレポートを表示")
-                                        .font(.subheadline)
-                                        .foregroundStyle(.white.opacity(0.8))
-                                }
-                                
-                                Spacer()
-                                
-                                Image(systemName: "chevron.right")
-                                    .font(.title2)
-                                    .foregroundStyle(.white)
+                                Text("全アプリの使用時間とレポートを表示")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.white.opacity(0.8))
                             }
-                            .padding(20)
-                            .background(Color.blue.gradient)
-                            .cornerRadius(16)
-                            .shadow(color: .blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .font(.title2)
+                                .foregroundStyle(.white)
                         }
-                        .padding(.horizontal, 20)
-                        
-                        // 簡易プレビュー（オプション）
+                        .padding(20)
+                        .background(Color.blue.gradient)
+                        .cornerRadius(16)
+                        .shadow(color: .blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    if isAuthorized {
+                        // 簡易プレビュー（認証済みの場合のみ）
                         AppUsageReportView(selectedDate: selectedDate)
                             .frame(height: 200)
                             .padding(.horizontal, 20)
                     } else {
-                        VStack(spacing: 16) {
-                            Image(systemName: "lock.shield")
-                                .font(.system(size: 48))
-                                .foregroundStyle(.secondary)
-                            
-                            Text("アプリ使用時間を表示するには認証が必要です")
-                                .font(.headline)
-                                .foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                            
-                            Button("認証を許可") {
-                                requestAuthorization()
+                        // 認証が必要な旨を表示
+                        VStack(spacing: 12) {
+                            HStack {
+                                Image(systemName: "info.circle")
+                                    .font(.headline)
+                                    .foregroundStyle(.orange)
+                                
+                                Text("認証が必要です")
+                                    .font(.headline)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.primary)
+                                
+                                Spacer()
                             }
-                            .buttonStyle(.borderedProminent)
+                            
+                            Text("詳細画面でFamily Controlsの認証を行ってください")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
                         }
-                        .padding(.vertical, 40)
-                        .frame(maxWidth: .infinity)
+                        .padding(16)
                         .background(Material.regularMaterial)
-                        .cornerRadius(16)
-                        .shadow(color: .black.opacity(0.1), radius: 8, x: 0, y: 4)
+                        .cornerRadius(12)
                         .padding(.horizontal, 20)
                     }
                 }

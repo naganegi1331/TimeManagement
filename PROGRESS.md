@@ -616,10 +616,11 @@ TimeManagement/Views/Analytics/
 - ✅ MyActivityReportExtensionの統合完了
 - ✅ Family Controls認証フロー実装完了 
 
-## 2025年1月27日 - 7bde002の状態にリセット
+## 2025年1月27日 - デバイス使用時間詳細画面の追加
 
-- コミット7bde002「Add DeviceActivityReport extension for app usage tracking」の状態にハードリセットしました
-- 以前の変更（デバイス使用時間レポートの削除など）を取り消しました
-- 現在の状態: DeviceActivityReport拡張機能でアプリ使用時間追跡が追加された状態
+- AnalyticsViewからデバイス使用時間確認画面への遷移ボタンを追加しました
+- DeviceUsageDetailView.swiftを新規作成し、詳細なデバイス使用時間レポートを表示する画面を実装しました
+- 総使用時間、アプリ別使用時間、カテゴリ別使用時間の3つのセクションを含む包括的なレポート画面を提供
+- コミットハッシュ: 92f7a2c
 
-## 過去のコミット履歴 
+## 2025年1月27日 - 7bde002の状態にリセット 
