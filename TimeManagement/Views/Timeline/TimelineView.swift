@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 import DeviceActivity
+import FamilyControls
 
 struct TimelineView: View {
     @Environment(\.modelContext) private var modelContext
@@ -341,6 +342,8 @@ struct DeviceUsageCompactView: View {
     let selectedDate: Date
     let onTapDetail: () -> Void
     @State private var filter: DeviceActivityFilter
+    @State private var authorizationCenter = AuthorizationCenter.shared
+    @State private var isAuthorized = false
     
     init(selectedDate: Date, onTapDetail: @escaping () -> Void) {
         self.selectedDate = selectedDate
@@ -380,9 +383,27 @@ struct DeviceUsageCompactView: View {
                         .foregroundStyle(.tertiary)
                 }
                 
-                DeviceActivityReport(.totalActivity, filter: filter)
+                if isAuthorized {
+                    DeviceActivityReport(.totalActivity, filter: filter)
+                        .frame(height: 60)
+                        .cornerRadius(8)
+                } else {
+                    HStack {
+                        Image(systemName: "lock.fill")
+                            .font(.title2)
+                            .foregroundStyle(.orange)
+                        
+                        Text("認証が必要です")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        
+                        Spacer()
+                    }
                     .frame(height: 60)
+                    .padding(.horizontal, 16)
+                    .background(Color.orange.opacity(0.1))
                     .cornerRadius(8)
+                }
             }
             .padding(.horizontal, 20)
             .padding(.vertical, 16)
@@ -402,6 +423,9 @@ struct DeviceUsageCompactView: View {
         .padding(.vertical, 6)
         .accessibilityLabel("デバイス使用時間を確認")
         .accessibilityHint("タップして詳細を表示")
+        .onAppear {
+            checkAuthorizationStatus()
+        }
         .onChange(of: selectedDate) { _, newDate in
             updateFilter(for: newDate)
         }
@@ -419,6 +443,15 @@ struct DeviceUsageCompactView: View {
             users: .all,
             devices: .init([.iPhone, .iPad])
         )
+    }
+    
+    private func checkAuthorizationStatus() {
+        switch authorizationCenter.authorizationStatus {
+        case .approved:
+            isAuthorized = true
+        default:
+            isAuthorized = false
+        }
     }
 }
 
