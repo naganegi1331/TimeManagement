@@ -615,3 +615,11 @@ TimeManagement/Views/Analytics/
 - ✅ iPhone 16シミュレーターでビルド成功
 - ✅ MyActivityReportExtensionの統合完了
 - ✅ Family Controls認証フロー実装完了 
+
+## 2025年1月27日 - 7bde002の状態にリセット
+
+- コミット7bde002「Add DeviceActivityReport extension for app usage tracking」の状態にハードリセットしました
+- 以前の変更（デバイス使用時間レポートの削除など）を取り消しました
+- 現在の状態: DeviceActivityReport拡張機能でアプリ使用時間追跡が追加された状態
+
+## 過去のコミット履歴 
