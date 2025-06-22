@@ -6,11 +6,47 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		04264BEC2E07D4EC0042B83A /* MyActivityReportExtension.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 04264BE02E07D4EC0042B83A /* MyActivityReportExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04264BEA2E07D4EC0042B83A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04C8156A2DFEE0140012FAFA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04264BDF2E07D4EC0042B83A;
+			remoteInfo = MyActivityReportExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		04264BED2E07D4EC0042B83A /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				04264BEC2E07D4EC0042B83A /* MyActivityReportExtension.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		04264BE02E07D4EC0042B83A /* MyActivityReportExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = MyActivityReportExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C815722DFEE0150012FAFA /* TimeManagement.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeManagement.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		04264BF12E07D4EC0042B83A /* Exceptions for "MyActivityReportExtension" folder in "MyActivityReportExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 04264BDF2E07D4EC0042B83A /* MyActivityReportExtension */;
+		};
 		04C815822DFEE0150012FAFA /* Exceptions for "TimeManagement" folder in "TimeManagement" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -21,6 +57,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		04264BE12E07D4EC0042B83A /* MyActivityReportExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				04264BF12E07D4EC0042B83A /* Exceptions for "MyActivityReportExtension" folder in "MyActivityReportExtension" target */,
+			);
+			path = MyActivityReportExtension;
+			sourceTree = "<group>";
+		};
 		04C815742DFEE0150012FAFA /* TimeManagement */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +76,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		04264BDD2E07D4EC0042B83A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C8156F2DFEE0150012FAFA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				04C815742DFEE0150012FAFA /* TimeManagement */,
+				04264BE12E07D4EC0042B83A /* MyActivityReportExtension */,
 				04C815732DFEE0150012FAFA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				04C815722DFEE0150012FAFA /* TimeManagement.app */,
+				04264BE02E07D4EC0042B83A /* MyActivityReportExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +114,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		04264BDF2E07D4EC0042B83A /* MyActivityReportExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04264BF02E07D4EC0042B83A /* Build configuration list for PBXNativeTarget "MyActivityReportExtension" */;
+			buildPhases = (
+				04264BDC2E07D4EC0042B83A /* Sources */,
+				04264BDD2E07D4EC0042B83A /* Frameworks */,
+				04264BDE2E07D4EC0042B83A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				04264BE12E07D4EC0042B83A /* MyActivityReportExtension */,
+			);
+			name = MyActivityReportExtension;
+			packageProductDependencies = (
+			);
+			productName = MyActivityReportExtension;
+			productReference = 04264BE02E07D4EC0042B83A /* MyActivityReportExtension.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
 		04C815712DFEE0150012FAFA /* TimeManagement */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04C815832DFEE0150012FAFA /* Build configuration list for PBXNativeTarget "TimeManagement" */;
@@ -68,10 +143,12 @@
 				04C8156E2DFEE0150012FAFA /* Sources */,
 				04C8156F2DFEE0150012FAFA /* Frameworks */,
 				04C815702DFEE0150012FAFA /* Resources */,
+				04264BED2E07D4EC0042B83A /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				04264BEB2E07D4EC0042B83A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				04C815742DFEE0150012FAFA /* TimeManagement */,
@@ -93,6 +170,9 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					04264BDF2E07D4EC0042B83A = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					04C815712DFEE0150012FAFA = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -113,11 +193,19 @@
 			projectRoot = "";
 			targets = (
 				04C815712DFEE0150012FAFA /* TimeManagement */,
+				04264BDF2E07D4EC0042B83A /* MyActivityReportExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		04264BDE2E07D4EC0042B83A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C815702DFEE0150012FAFA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,6 +216,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		04264BDC2E07D4EC0042B83A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		04C8156E2DFEE0150012FAFA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +232,67 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		04264BEB2E07D4EC0042B83A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04264BDF2E07D4EC0042B83A /* MyActivityReportExtension */;
+			targetProxy = 04264BEA2E07D4EC0042B83A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		04264BEE2E07D4EC0042B83A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MyActivityReportExtension/MyActivityReportExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6CWV69GPSZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyActivityReportExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyActivityReportExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.org.TimeManagement.MyActivityReportExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04264BEF2E07D4EC0042B83A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = MyActivityReportExtension/MyActivityReportExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6CWV69GPSZ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyActivityReportExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MyActivityReportExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.org.TimeManagement.MyActivityReportExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		04C815842DFEE0150012FAFA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -322,6 +477,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		04264BF02E07D4EC0042B83A /* Build configuration list for PBXNativeTarget "MyActivityReportExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04264BEE2E07D4EC0042B83A /* Debug */,
+				04264BEF2E07D4EC0042B83A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		04C8156D2DFEE0140012FAFA /* Build configuration list for PBXProject "TimeManagement" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
