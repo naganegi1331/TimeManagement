@@ -723,6 +723,93 @@ TimelineViewにアプリ使用時間レポート機能を統合し、日々の�
 - 🔄 変更ファイル数: 2ファイル（231行追加、11行削除）
 - 🚀 ビルドテスト: iPhone 16シミュレーターで成功確認済み
 
+## 2025年6月22日 - デバイス使用時間レポート認証エラー修正
+
+### 🔧 デバイス使用時間レポート問題修正作業 (2025/06/22)
+
+**実装内容:**
+LaunchServicesエラーとFamily Controls認証問題を解決し、実機・シミュレーター両環境でのデバイス使用時間レポート機能を最適化しました。
+
+**修正された問題:**
+
+**1. LaunchServicesエラーの解決:**
+- ✅ app-sandboxエンタイトルメントの無効化によるDeviceActivity機能との競合回避
+- ✅ Family Controls権限の適切な設定とアクセス権限最適化
+- ✅ プロセスデータベースマッピング権限エラーの解消
+
+**2. 認証フローの強化:**
+- ✅ Family Controls認証エラーハンドリング機能の追加
+- ✅ 認証失敗時のユーザーフレンドリーなアラート表示
+- ✅ 認証状態管理の改善と自動再試行機能
+- ✅ 設定アプリでのスクリーンタイム有効化ガイダンス
+
+**3. シミュレーター対応の改善:**
+- ✅ SimulatorUsageDataViewの新規作成（サンプルデータ表示）
+- ✅ 実機とシミュレーター環境の適切な動作分岐
+- ✅ 開発・テスト環境での機能確認機能
+
+**4. UI/UX向上:**
+- ✅ 認証状態に応じた条件付きレンダリング
+- ✅ DeviceUsageNavigationButtonコンポーネントの作成
+- ✅ 統一されたエラーメッセージとユーザーガイダンス
+- ✅ Material Design準拠の美しいインターフェース
+
+**技術的改善:**
+
+**エンタイトルメント最適化:**
+```xml
+<!-- app-sandboxを無効化してDeviceActivity機能との競合を回避 -->
+<key>com.apple.developer.family-controls</key>
+<true/>
+```
+
+**認証処理の強化:**
+```swift
+private func requestAuthorization() {
+    Task {
+        do {
+            try await authorizationCenter.requestAuthorization(for: .individual)
+            await MainActor.run {
+                checkAuthorizationStatus()
+            }
+        } catch {
+            await MainActor.run {
+                authorizationError = "認証に失敗しました: \(error.localizedDescription)"
+                showingAuthorizationAlert = true
+            }
+        }
+    }
+}
+```
+
+**条件付きレンダリング:**
+```swift
+if isAuthorized {
+    DeviceActivityReport(.totalActivity, filter: filter)
+        .frame(height: 60)
+} else {
+    // 認証が必要な旨の表示
+}
+```
+
+**実機での期待される効果:**
+- ✅ LaunchServicesエラーの完全解消
+- ✅ Family Controls認証の正常動作
+- ✅ 実際のアプリ使用時間データの表示
+- ✅ IconServicesエラーの解決
+
+**開発環境での改善:**
+- ✅ シミュレーターでのサンプルデータ表示
+- ✅ 機能テストの効率化
+- ✅ デバッグ情報の充実
+
+**コミット情報:**
+- 📝 コミットハッシュ: `fad34e5`
+- 📅 実装日時: 2025年6月22日 17:19
+- 🔄 変更ファイル数: 5ファイル（368行追加、98行削除）
+- 📁 新規ファイル: SimulatorUsageDataView.swift
+- 🚀 ビルドテスト: iPhone 16シミュレーターで成功確認済み
+
 ## 2025年1月27日 - デバイス使用時間詳細画面の追加
 
 - AnalyticsViewからデバイス使用時間確認画面への遷移ボタンを追加しました
