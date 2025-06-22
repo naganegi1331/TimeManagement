@@ -631,3 +631,12 @@ TimeManagement/Views/Analytics/
 - コミットハッシュ: 92f7a2c
 
 ## 2025年1月27日 - 7bde002の状態にリセット 
+
+## 2025年1月27日 - AnalyticsView.swiftファイルの修正
+
+- 正しいAnalyticsView.swift（TimeManagement/Views/Analytics/AnalyticsView.swift）にデバイス使用時間確認ボタンを追加しました
+- 重複していたViews/Analytics/AnalyticsView.swiftファイルを削除して混乱を解消しました
+- Xcodeプロジェクトで実際に使用されているファイルを特定し、適切に更新しました
+- コミットハッシュ: 93ddf53
+
+## 2025年1月27日 - デバイス使用時間確認ボタンの表示修正 
