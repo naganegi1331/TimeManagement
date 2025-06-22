@@ -7,11 +7,15 @@
 
 import SwiftUI
 import SwiftData
+import DeviceActivity
+import FamilyControls
 
 struct AnalyticsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var activities: [ActivityLog]
     @State private var selectedDate = Date()
+    @State private var authorizationCenter = AuthorizationCenter.shared
+    @State private var isAuthorized = false
     
     private var filteredActivities: [ActivityLog] {
         let calendar = Calendar.current
@@ -100,12 +104,121 @@ struct AnalyticsView: View {
                         .padding(.horizontal, 20)
                     }
                 }
+                
+                // アプリ使用時間レポート
+                VStack(alignment: .leading, spacing: 16) {
+                    HStack {
+                        Image(systemName: "apps.iphone")
+                            .font(.headline)
+                            .foregroundStyle(.blue)
+                        
+                        Text("アプリ使用時間レポート")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    Text("デバイスのアプリ使用時間を表示")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .padding(.horizontal, 20)
+                    
+                    // デバイス使用時間確認画面への遷移ボタン（常に表示）
+                    NavigationLink(destination: DeviceUsageDetailView(selectedDate: selectedDate)) {
+                        HStack {
+                            Image(systemName: "chart.bar.fill")
+                                .font(.title2)
+                                .foregroundStyle(.white)
+                            
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("詳細なデバイス使用時間を確認")
+                                    .font(.headline)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.white)
+                                
+                                Text("全アプリの使用時間とレポートを表示")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.white.opacity(0.8))
+                            }
+                            
+                            Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .font(.title2)
+                                .foregroundStyle(.white)
+                        }
+                        .padding(20)
+                        .background(Color.blue.gradient)
+                        .cornerRadius(16)
+                        .shadow(color: .blue.opacity(0.3), radius: 8, x: 0, y: 4)
+                    }
+                    .padding(.horizontal, 20)
+                    
+                    if isAuthorized {
+                        // 簡易プレビュー（認証済みの場合のみ）
+                        AppUsageReportView(selectedDate: selectedDate)
+                            .frame(height: 200)
+                            .padding(.horizontal, 20)
+                    } else {
+                        // 認証が必要な旨を表示
+                        VStack(spacing: 12) {
+                            HStack {
+                                Image(systemName: "info.circle")
+                                    .font(.headline)
+                                    .foregroundStyle(.orange)
+                                
+                                Text("認証が必要です")
+                                    .font(.headline)
+                                    .fontWeight(.semibold)
+                                    .foregroundStyle(.primary)
+                                
+                                Spacer()
+                            }
+                            
+                            Text("詳細画面でFamily Controlsの認証を行ってください")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                        }
+                        .padding(16)
+                        .background(Material.regularMaterial)
+                        .cornerRadius(12)
+                        .padding(.horizontal, 20)
+                    }
+                }
             }
             .padding(.vertical, 16)
         }
         .navigationTitle("分析")
         .navigationBarTitleDisplayMode(.inline)
         .background(Color(.systemGroupedBackground))
+        .onAppear {
+            checkAuthorizationStatus()
+        }
+    }
+    
+    private func requestAuthorization() {
+        Task {
+            do {
+                try await authorizationCenter.requestAuthorization(for: .individual)
+                await MainActor.run {
+                    checkAuthorizationStatus()
+                }
+            } catch {
+                print("Authorization request failed: \(error)")
+            }
+        }
+    }
+    
+    private func checkAuthorizationStatus() {
+        switch authorizationCenter.authorizationStatus {
+        case .approved:
+            isAuthorized = true
+        default:
+            isAuthorized = false
+        }
     }
 }
 
