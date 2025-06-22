@@ -199,6 +199,46 @@ ActivityEditViewの時間入力機能を15分単位で効率的に設定でき�
 - ✅ 新規作成時の初期時刻も15分単位に自動調整
 - ✅ 静的メソッド`roundToNearestFifteenMinutes`による時刻正規化
 
+## DeviceActivityReport API修正実行履歴
+
+### 📱 デバイス使用時間機能修正作業 (2025/06/22)
+
+**修正内容:**
+DeviceActivityReportのAPIエラーを修正し、正常にビルドできるよう対応しました。
+
+**修正されたファイル:**
+- ✅ `AnalyticsView.swift` - DeviceActivityReport.Context拡張機能の追加
+- ✅ `DeviceUsageDetailView.swift` - DeviceActivityReport API構文の修正
+- ✅ `AppUsageReportView.swift` - DeviceActivityReport API構文の修正
+
+**修正内容の詳細:**
+
+**1. DeviceActivityReport.Context拡張機能の定義:**
+- ✅ `totalActivity`、`appUsage`、`categoryUsage`の静的プロパティ定義
+- ✅ 重複宣言エラーの解決（一箇所での定義に統一）
+- ✅ 正しいDeviceActivityReport.Context初期化構文の使用
+
+**2. APIエラーの修正:**
+- ✅ `.totalActivity`メンバーが存在しないエラーの解決
+- ✅ DeviceActivityReportコンストラクタの正しい使用法への修正
+- ✅ iOS 18.5 SDKに対応したDeviceActivity APIの適用
+
+**3. ビルドエラーの完全解決:**
+- ✅ TimeManagementターゲットのビルド成功
+- ✅ MyActivityReportExtensionターゲットのビルド成功
+- ✅ コード署名とvalidationの完了
+
+**技術的効果:**
+- ✅ DeviceActivity frameworkの正しい実装
+- ✅ Family Controlsとの連携機能の復旧
+- ✅ アプリ使用時間レポート機能の動作確認
+- ✅ iOS実機・シミュレーターでの実行可能性確保
+
+**コミット情報:**
+- 📝 コミットハッシュ: `9eddd15`
+- 📅 実装日時: 2025/06/22
+- 🔄 変更ファイル数: 232ファイル（主にビルド成果物含む）
+
 **4. UI/UX向上:**
 - ✅ マテリアルデザインによる美しい背景
 - ✅ スムーズなアニメーション（withAnimation）
@@ -622,6 +662,60 @@ TimeManagement/Views/Analytics/
 - 認証が必要な場合は、詳細画面で認証を行うよう案内メッセージを表示
 - ユーザビリティを向上させ、機能への導線を明確にしました
 - コミットハッシュ: a4f205f
+
+## 2025年1月27日 - TimelineViewにアプリ使用時間レポート機能追加
+
+### 🔧 TimelineViewアプリ使用時間統合作業 (2025/01/27)
+
+**実装内容:**
+TimelineViewにアプリ使用時間レポート機能を統合し、日々の活動記録とデバイス使用時間を一つの画面で確認できるよう改善しました。
+
+**追加された機能:**
+
+**1. ツールバーナビゲーション強化:**
+- ✅ デバイス使用時間確認ボタン（オレンジ色のiPhoneアイコン）をツールバーに追加
+- ✅ 既存の活動追加ボタンと並列配置による効率的なアクセス
+- ✅ DeviceUsageDetailViewへの直接ナビゲーション機能
+
+**2. DeviceUsageCompactViewの新規作成:**
+- ✅ TimelineView内でのコンパクトなアプリ使用時間表示
+- ✅ 選択日付に対応した動的フィルタリング機能
+- ✅ タップで詳細画面への遷移機能
+- ✅ Material背景による美しいデザイン統合
+
+**3. リスト構造の改善:**
+- ✅ セクション分割による情報の整理（デバイス使用時間 + 活動記録）
+- ✅ ヘッダー付きセクション表示による視覚的分離
+- ✅ 統一されたデザイン言語による一貫性向上
+
+**4. 日付連動機能:**
+- ✅ 選択日付の変更時に自動的にフィルタ更新
+- ✅ DeviceActivityFilterの動的生成
+- ✅ 日付別デバイス使用時間の正確な表示
+
+**技術的改善:**
+- ✅ DeviceActivityフレームワークの統合
+- ✅ 状態管理による画面遷移制御
+- ✅ コンパクトビューによる効率的な情報表示
+- ✅ アクセシビリティ対応（VoiceOver・スクリーンリーダー）
+
+**ユーザビリティ向上:**
+- ✅ 一画面での包括的な時間管理情報提供
+- ✅ 活動記録とデバイス使用時間の相関確認
+- ✅ 直感的なナビゲーションフロー
+- ✅ 日付選択による統一されたデータ表示
+
+**UI/UX改善:**
+- ✅ セクションヘッダーによる情報の階層化
+- ✅ 一貫したマテリアルデザイン適用
+- ✅ タップ可能要素の明確な表示
+- ✅ 効率的なスクリーンスペース活用
+
+**コード品質:**
+- ✅ 単一責任原則に基づくコンポーネント設計
+- ✅ 再利用可能なDeviceUsageCompactView作成
+- ✅ 適切な状態管理とライフサイクル制御
+- ✅ SwiftUIベストプラクティスの適用
 
 ## 2025年1月27日 - デバイス使用時間詳細画面の追加
 

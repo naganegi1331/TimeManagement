@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SwiftData
+import DeviceActivity
 
 struct TimelineView: View {
     @Environment(\.modelContext) private var modelContext
@@ -14,6 +15,7 @@ struct TimelineView: View {
     @State private var selectedDate = Date()
     @State private var showingAddActivity = false
     @State private var editingActivity: ActivityLog?
+    @State private var showingDeviceUsage = false
     
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -83,14 +85,36 @@ struct TimelineView: View {
                     }
                 } else {
                     List {
-                        ForEach(filteredActivities) { activity in
-                            ActivityRowView(activity: activity) {
-                                editingActivity = activity
+                        // アプリ使用時間レポートセクション
+                        Section {
+                            DeviceUsageCompactView(selectedDate: selectedDate) {
+                                showingDeviceUsage = true
                             }
                             .listRowSeparator(.hidden)
                             .listRowBackground(Color.clear)
+                        } header: {
+                            Text("デバイス使用時間")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.primary)
                         }
-                        .onDelete(perform: deleteActivities)
+                        
+                        // 活動記録セクション
+                        Section {
+                            ForEach(filteredActivities) { activity in
+                                ActivityRowView(activity: activity) {
+                                    editingActivity = activity
+                                }
+                                .listRowSeparator(.hidden)
+                                .listRowBackground(Color.clear)
+                            }
+                            .onDelete(perform: deleteActivities)
+                        } header: {
+                            Text("活動記録")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.primary)
+                        }
                     }
                     .listStyle(.plain)
                     .scrollContentBackground(.hidden)
@@ -100,14 +124,27 @@ struct TimelineView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        showingAddActivity = true
-                    }) {
-                        Image(systemName: "plus.circle.fill")
-                            .font(.title2)
-                            .foregroundStyle(.white, .blue)
+                    HStack(spacing: 16) {
+                        // デバイス使用時間ボタン
+                        Button(action: {
+                            showingDeviceUsage = true
+                        }) {
+                            Image(systemName: "iphone")
+                                .font(.title3)
+                                .foregroundStyle(.orange)
+                        }
+                        .accessibilityLabel("デバイス使用時間を確認")
+                        
+                        // 活動追加ボタン
+                        Button(action: {
+                            showingAddActivity = true
+                        }) {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.title2)
+                                .foregroundStyle(.white, .blue)
+                        }
+                        .accessibilityLabel("新しい活動を追加")
                     }
-                    .accessibilityLabel("新しい活動を追加")
                 }
                 ToolbarItem(placement: .navigationBarLeading) {
                     NavigationLink(destination: AnalyticsView()) {
@@ -123,6 +160,9 @@ struct TimelineView: View {
             }
             .sheet(item: $editingActivity) { activity in
                 ActivityEditView(activity: activity)
+            }
+            .sheet(isPresented: $showingDeviceUsage) {
+                DeviceUsageDetailView(selectedDate: selectedDate)
             }
         }
     }
@@ -293,6 +333,92 @@ struct EmptyStateView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Material.regularMaterial)
+    }
+}
+
+// MARK: - Device Usage Compact View
+struct DeviceUsageCompactView: View {
+    let selectedDate: Date
+    let onTapDetail: () -> Void
+    @State private var filter: DeviceActivityFilter
+    
+    init(selectedDate: Date, onTapDetail: @escaping () -> Void) {
+        self.selectedDate = selectedDate
+        self.onTapDetail = onTapDetail
+        
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: selectedDate)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        
+        let dateInterval = DateInterval(start: startOfDay, end: endOfDay)
+        
+        self._filter = State(initialValue: DeviceActivityFilter(
+            segment: .daily(during: dateInterval),
+            users: .all,
+            devices: .init([.iPhone, .iPad])
+        ))
+    }
+    
+    var body: some View {
+        Button(action: onTapDetail) {
+            VStack(spacing: 12) {
+                HStack {
+                    Image(systemName: "iphone")
+                        .font(.title2)
+                        .foregroundStyle(.orange)
+                    
+                    Text("デバイス使用時間")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.primary)
+                    
+                    Spacer()
+                    
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(.tertiary)
+                }
+                
+                DeviceActivityReport(.totalActivity, filter: filter)
+                    .frame(height: 60)
+                    .cornerRadius(8)
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(Material.regularMaterial)
+                    .shadow(
+                        color: .black.opacity(0.05),
+                        radius: 8,
+                        x: 0,
+                        y: 4
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+        .padding(.horizontal, 20)
+        .padding(.vertical, 6)
+        .accessibilityLabel("デバイス使用時間を確認")
+        .accessibilityHint("タップして詳細を表示")
+        .onChange(of: selectedDate) { _, newDate in
+            updateFilter(for: newDate)
+        }
+    }
+    
+    private func updateFilter(for date: Date) {
+        let calendar = Calendar.current
+        let startOfDay = calendar.startOfDay(for: date)
+        let endOfDay = calendar.date(byAdding: .day, value: 1, to: startOfDay)!
+        
+        let dateInterval = DateInterval(start: startOfDay, end: endOfDay)
+        
+        filter = DeviceActivityFilter(
+            segment: .daily(during: dateInterval),
+            users: .all,
+            devices: .init([.iPhone, .iPad])
+        )
     }
 }
 
