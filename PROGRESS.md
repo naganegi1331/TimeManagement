@@ -640,3 +640,13 @@ TimeManagement/Views/Analytics/
 - コミットハッシュ: 93ddf53
 
 ## 2025年1月27日 - デバイス使用時間確認ボタンの表示修正 
+
+## 2025年1月27日 - Analytics関連ファイルの構造整理
+
+- AppUsageReportView.swiftとDeviceUsageDetailView.swiftをAnalyticsView.swiftと同じディレクトリに移動しました
+- Views/Analytics/ → TimeManagement/Views/Analytics/ に統合
+- 関連するファイルを同じ場所に配置することで、プロジェクト構造を整理しました
+- 空になったディレクトリを削除してクリーンアップしました
+- コミットハッシュ: 588e845
+
+## 2025年1月27日 - AnalyticsView.swiftファイルの修正 
