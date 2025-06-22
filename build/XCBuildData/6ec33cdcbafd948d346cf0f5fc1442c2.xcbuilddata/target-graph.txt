@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'TimeManagement' in project 'TimeManagement'
+➜ Explicit dependency on target 'MyActivityReportExtension' in project 'TimeManagement'
+Target 'MyActivityReportExtension' in project 'TimeManagement' (no dependencies)

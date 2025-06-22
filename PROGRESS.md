@@ -650,3 +650,23 @@ TimeManagement/Views/Analytics/
 - コミットハッシュ: 588e845
 
 ## 2025年1月27日 - AnalyticsView.swiftファイルの修正 
+
+## 2025/06/22 - Analytics関連ファイル構造整理の完了
+
+### 実装内容
+- **ファイル移動**: AppUsageReportView.swift と DeviceUsageDetailView.swift を AnalyticsView.swift と同じディレクトリに統合
+- **構造整理**: Views/Analytics/ → TimeManagement/Views/Analytics/ への移動完了
+- **クリーンアップ**: 空ディレクトリの削除とプロジェクト構造の最適化
+- **デバイス使用時間機能**: AnalyticsView から DeviceUsageDetailView への遷移機能実装
+
+### 技術的詳細
+- Family Controls と DeviceActivity フレームワークの統合
+- 認証状態管理とユーザー体験の向上
+- ファイルシステム同期グループによる自動認識対応
+
+### コミット情報
+- **コミットハッシュ**: 02e22b1
+- **実装日時**: 2025/06/22 16:45
+- **影響範囲**: Analytics機能全体のファイル構造とユーザーインターフェース
+
+## 2025年1月27日 - Analytics関連ファイルの構造整理 

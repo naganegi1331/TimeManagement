@@ -1,0 +1,32 @@
+{
+  "source": "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/CategoryPieChartView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "データがありません",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 60
+        }
+      },
+      {
+        "comment": "",
+        "key": "合計",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 88
+        }
+      },
+      {
+        "comment": "",
+        "key": "タップで詳細",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 99
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,120 @@
+{
+  "source": "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/ActivityEdit/ActivityEditView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "活動を編集",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 261
+        }
+      },
+      {
+        "comment": "",
+        "key": "活動を追加",
+        "location": {
+          "startingColumn": 62,
+          "startingLine": 261
+        }
+      },
+      {
+        "comment": "",
+        "key": "継続時間: %lld分",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 125
+        }
+      },
+      {
+        "comment": "",
+        "key": "カテゴリを選択",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 142
+        }
+      },
+      {
+        "comment": "",
+        "key": "選択中: %@",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 169
+        }
+      },
+      {
+        "comment": "",
+        "key": "重要度・緊急度を選択",
+        "location": {
+          "startingColumn": 40,
+          "startingLine": 187
+        }
+      },
+      {
+        "comment": "",
+        "key": "第%lld象限",
+        "location": {
+          "startingColumn": 50,
+          "startingLine": 193
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 212
+        }
+      },
+      {
+        "comment": "",
+        "key": "選択中: %@",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 218
+        }
+      },
+      {
+        "comment": "",
+        "key": "第%lld象限",
+        "location": {
+          "startingColumn": 46,
+          "startingLine": 223
+        }
+      },
+      {
+        "comment": "",
+        "key": "活動の詳細や振り返りを記録",
+        "location": {
+          "startingColumn": 43,
+          "startingLine": 241
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld / 200文字",
+        "location": {
+          "startingColumn": 42,
+          "startingLine": 250
+        }
+      },
+      {
+        "comment": "",
+        "key": "キャンセル",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 265
+        }
+      },
+      {
+        "comment": "",
+        "key": "保存",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 272
+        }
+      }
+    ]
+  },
+  "version": 1
+}

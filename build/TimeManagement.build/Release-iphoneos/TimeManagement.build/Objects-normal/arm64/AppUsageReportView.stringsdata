@@ -1,0 +1,24 @@
+{
+  "source": "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/AppUsageReportView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "総使用時間",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 36
+        }
+      },
+      {
+        "comment": "",
+        "key": "アプリ別使用時間",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 50
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,8 @@
+version: "Apple Swift version 6.1.2 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)"
+options: "4d71c1b5dae8be68f257858db59fb4270bf00826b1c89b8a7d580802b7acb47a"
+build_start_time: [1750579031, 570945000]
+build_end_time: [1750579032, 386461000]
+inputs:
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/MyActivityReportExtension/MyActivityReportExtension.swift": [1750573641, 126392478]
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/MyActivityReportExtension/TotalActivityReport.swift": [1750573924, 760005438]
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/MyActivityReportExtension/TotalActivityView.swift": [1750577107, 618349140]

@@ -1,0 +1,25 @@
+{
+  "" : {
+    "const-values" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension-master.swiftconstvalues",
+    "dependencies" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension-master.d",
+    "diagnostics" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension-master.dia",
+    "emit-module-dependencies" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension-master-emit-module.dia",
+    "swift-dependencies" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension-master.swiftdeps"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/MyActivityReportExtension/MyActivityReportExtension.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/MyActivityReportExtension.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/MyActivityReportExtension/TotalActivityReport.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/TotalActivityReport.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/TotalActivityReport.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/TotalActivityReport.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/MyActivityReportExtension/TotalActivityView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/TotalActivityView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/TotalActivityView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/MyActivityReportExtension.build/Objects-normal/arm64/TotalActivityView.o"
+  }
+}

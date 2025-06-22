@@ -1,0 +1,90 @@
+{
+  "" : {
+    "const-values" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagement-master.swiftconstvalues",
+    "dependencies" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagement-master.d",
+    "diagnostics" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagement-master.dia",
+    "emit-module-dependencies" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagement-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagement-master-emit-module.dia",
+    "swift-dependencies" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagement-master.swiftdeps"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Models/ActivityLog.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ActivityLog.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ActivityLog.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ActivityLog.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Models/Enums.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/Enums.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/Enums.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/Enums.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/TimeManagementApp.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagementApp.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagementApp.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimeManagementApp.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/ActivityEdit/ActivityEditView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ActivityEditView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ActivityEditView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ActivityEditView.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/ActivityEdit/SectionHeaderView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/SectionHeaderView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/SectionHeaderView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/SectionHeaderView.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/ActivityEdit/TimePickerComponents.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimePickerComponents.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimePickerComponents.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimePickerComponents.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/AnalyticsView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/AnalyticsView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/AnalyticsView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/AnalyticsView.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/AppUsageReportView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/AppUsageReportView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/AppUsageReportView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/AppUsageReportView.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/CategoryPieChartView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/CategoryPieChartView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/CategoryPieChartView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/CategoryPieChartView.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/ChartDataModels.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ChartDataModels.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ChartDataModels.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ChartDataModels.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/ChartLegendComponents.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ChartLegendComponents.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ChartLegendComponents.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/ChartLegendComponents.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/DeviceUsageDetailView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/DeviceUsageDetailView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/DeviceUsageDetailView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/DeviceUsageDetailView.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/MatrixChartView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/MatrixChartView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/MatrixChartView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/MatrixChartView.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/PieChartComponents.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/PieChartComponents.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/PieChartComponents.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/PieChartComponents.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Timeline/TimelineView.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimelineView.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimelineView.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/TimelineView.o"
+  },
+  "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "index-unit-output-path" : "/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/TimeManagement.build/Release-iphoneos/TimeManagement.build/Objects-normal/arm64/GeneratedAssetSymbols.o"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "source": "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/AnalyticsView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "分析",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 200
+        }
+      },
+      {
+        "comment": "",
+        "key": "時間分析",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 40
+        }
+      },
+      {
+        "comment": "",
+        "key": "活動データの詳細な分析",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 45
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 69
+        }
+      },
+      {
+        "comment": "",
+        "key": "分析対象日",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 61
+        }
+      },
+      {
+        "comment": "",
+        "key": "デバイスのアプリ使用時間を表示",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 129
+        }
+      },
+      {
+        "comment": "",
+        "key": "アプリ使用時間レポート",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 121
+        }
+      },
+      {
+        "comment": "",
+        "key": "詳細なデバイス使用時間を確認",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 142
+        }
+      },
+      {
+        "comment": "",
+        "key": "全アプリの使用時間とレポートを表示",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 147
+        }
+      },
+      {
+        "comment": "",
+        "key": "詳細画面でFamily Controlsの認証を行ってください",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 186
+        }
+      },
+      {
+        "comment": "",
+        "key": "認証が必要です",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 178
+        }
+      },
+      {
+        "comment": "",
+        "key": "分析データがありません",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 250
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@の活動記録がありません",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 255
+        }
+      },
+      {
+        "comment": "",
+        "key": "他の日付を選択するか、活動を記録してください",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 263
+        }
+      },
+      {
+        "comment": "",
+        "key": "カテゴリ別分析",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 422
+        }
+      },
+      {
+        "comment": "",
+        "key": "重要度・緊急度別分析",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 442
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld分",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 482
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%@%%)",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 487
+        }
+      }
+    ]
+  },
+  "version": 1
+}

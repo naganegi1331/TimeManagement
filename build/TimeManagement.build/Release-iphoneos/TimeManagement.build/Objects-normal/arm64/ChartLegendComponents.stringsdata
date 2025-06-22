@@ -1,0 +1,64 @@
+{
+  "source": "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/ChartLegendComponents.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "%lld分",
+        "location": {
+          "startingColumn": 22,
+          "startingLine": 54
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@: %lld分, %@パーセント",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 121
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld分",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 105
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%@%%)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 109
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@: %lld分, %@パーセント",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 170
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld分",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 150
+        }
+      },
+      {
+        "comment": "",
+        "key": "(%@%%)",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 155
+        }
+      }
+    ]
+  },
+  "version": 1
+}

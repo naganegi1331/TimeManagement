@@ -10,6 +10,12 @@ import SwiftData
 import DeviceActivity
 import FamilyControls
 
+extension DeviceActivityReport.Context {
+    static let totalActivity = Self("TotalActivity")
+    static let appUsage = Self("AppUsage")
+    static let categoryUsage = Self("CategoryUsage")
+}
+
 struct AnalyticsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var activities: [ActivityLog]

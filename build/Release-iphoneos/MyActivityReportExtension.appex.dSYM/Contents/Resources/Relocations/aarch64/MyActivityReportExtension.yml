@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/hirokikashihara/Developer/TestProject/TimeManagement/build/Release-iphoneos/MyActivityReportExtension.appex/MyActivityReportExtension'
+relocations:     []
+...

@@ -1,0 +1,136 @@
+{
+  "source": "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Timeline/TimelineView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "時間の家計簿",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 99
+        }
+      },
+      {
+        "comment": "",
+        "key": "",
+        "location": {
+          "startingColumn": 32,
+          "startingLine": 68
+        }
+      },
+      {
+        "comment": "",
+        "key": "今日の活動",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 38
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 53
+        }
+      },
+      {
+        "comment": "",
+        "key": "活動",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 57
+        }
+      },
+      {
+        "comment": "",
+        "key": "新しい活動を追加",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 110
+        }
+      },
+      {
+        "comment": "",
+        "key": "分析画面を開く",
+        "location": {
+          "startingColumn": 41,
+          "startingLine": 118
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@、%@から%@、%lld分",
+        "location": {
+          "startingColumn": 29,
+          "startingLine": 249
+        }
+      },
+      {
+        "comment": "",
+        "key": "タップして編集",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 250
+        }
+      },
+      {
+        "comment": "",
+        "key": "%@ - %@",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 168
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld分",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 176
+        }
+      },
+      {
+        "comment": "",
+        "key": "今日の活動を記録しよう",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 271
+        }
+      },
+      {
+        "comment": "",
+        "key": "この日の活動記録はありません",
+        "location": {
+          "startingColumn": 74,
+          "startingLine": 271
+        }
+      },
+      {
+        "comment": "",
+        "key": "新しい活動を追加して、時間の使い方を管理しましょう",
+        "location": {
+          "startingColumn": 36,
+          "startingLine": 276
+        }
+      },
+      {
+        "comment": "",
+        "key": "活動を追加して記録を開始できます",
+        "location": {
+          "startingColumn": 116,
+          "startingLine": 276
+        }
+      },
+      {
+        "comment": "",
+        "key": "活動を追加",
+        "location": {
+          "startingColumn": 23,
+          "startingLine": 285
+        }
+      }
+    ]
+  },
+  "version": 1
+}

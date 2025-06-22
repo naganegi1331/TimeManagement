@@ -1,0 +1,48 @@
+{
+  "source": "/Users/hirokikashihara/Developer/TestProject/TimeManagement/MyActivityReportExtension/TotalActivityView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "総使用時間",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 15
+        }
+      },
+      {
+        "comment": "",
+        "key": "アプリ使用時間",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 35
+        }
+      },
+      {
+        "comment": "",
+        "key": "使用時間データがありません",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 46
+        }
+      },
+      {
+        "comment": "",
+        "key": "アプリの使用を開始すると、ここに使用時間が表示されます",
+        "location": {
+          "startingColumn": 26,
+          "startingLine": 50
+        }
+      },
+      {
+        "comment": "",
+        "key": "%lld",
+        "location": {
+          "startingColumn": 18,
+          "startingLine": 83
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,72 @@
+{
+  "source": "/Users/hirokikashihara/Developer/TestProject/TimeManagement/TimeManagement/Views/Analytics/DeviceUsageDetailView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "デバイス使用時間",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 142
+        }
+      },
+      {
+        "comment": "",
+        "key": "デバイス使用時間",
+        "location": {
+          "startingColumn": 38,
+          "startingLine": 41
+        }
+      },
+      {
+        "comment": "",
+        "key": "総使用時間",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 63
+        }
+      },
+      {
+        "comment": "",
+        "key": "全てのアプリの詳細な使用時間を表示",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 95
+        }
+      },
+      {
+        "comment": "",
+        "key": "アプリ別使用時間",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 87
+        }
+      },
+      {
+        "comment": "",
+        "key": "アプリをカテゴリごとにグループ化して表示",
+        "location": {
+          "startingColumn": 30,
+          "startingLine": 124
+        }
+      },
+      {
+        "comment": "",
+        "key": "カテゴリ別使用時間",
+        "location": {
+          "startingColumn": 34,
+          "startingLine": 116
+        }
+      },
+      {
+        "comment": "",
+        "key": "完了",
+        "location": {
+          "startingColumn": 28,
+          "startingLine": 147
+        }
+      }
+    ]
+  },
+  "version": 1
+}
