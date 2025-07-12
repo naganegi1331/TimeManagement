@@ -155,6 +155,14 @@ struct TimelineView: View {
                     }
                     .accessibilityLabel("分析画面を開く")
                 }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: DailyAppUsageView()) {
+                        Image(systemName: "apps.iphone")
+                            .font(.title3)
+                            .foregroundStyle(.green)
+                    }
+                    .accessibilityLabel("アプリ使用時間を確認")
+                }
             }
             .sheet(isPresented: $showingAddActivity) {
                 ActivityEditView(date: selectedDate)

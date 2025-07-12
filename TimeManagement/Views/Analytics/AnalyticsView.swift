@@ -134,17 +134,49 @@ struct AnalyticsView: View {
                         .padding(.horizontal, 20)
                     
                     // デバイス使用時間確認画面への遷移ボタン
-                    if isAuthorized {
-                        NavigationLink(destination: DeviceUsageDetailView(selectedDate: selectedDate)) {
-                            DeviceUsageNavigationButton(isAuthorized: true)
+                    HStack(spacing: 12) {
+                        if isAuthorized {
+                            NavigationLink(destination: DeviceUsageDetailView(selectedDate: selectedDate)) {
+                                DeviceUsageNavigationButton(isAuthorized: true)
+                            }
+                        } else {
+                            Button(action: requestAuthorization) {
+                                DeviceUsageNavigationButton(isAuthorized: false)
+                            }
                         }
-                        .padding(.horizontal, 20)
-                    } else {
-                        Button(action: requestAuthorization) {
-                            DeviceUsageNavigationButton(isAuthorized: false)
+                        
+                        // 新しいDailyAppUsageViewへの遷移ボタン
+                        NavigationLink(destination: DailyAppUsageView()) {
+                            HStack(spacing: 8) {
+                                Image(systemName: "apps.iphone")
+                                    .font(.title2)
+                                    .foregroundStyle(.green)
+                                
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("アプリ使用時間")
+                                        .font(.subheadline)
+                                        .fontWeight(.semibold)
+                                        .foregroundStyle(.primary)
+                                    
+                                    Text("日別アプリ使用状況")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+                                
+                                Spacer()
+                                
+                                Image(systemName: "chevron.right")
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                            }
+                            .padding(16)
+                            .background(Material.regularMaterial)
+                            .cornerRadius(12)
+                            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
                         }
-                        .padding(.horizontal, 20)
+                        .buttonStyle(PlainButtonStyle())
                     }
+                    .padding(.horizontal, 20)
                     
                     if isAuthorized {
                         // 簡易プレビュー（認証済みの場合のみ）
